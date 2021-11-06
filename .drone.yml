@@ -1,0 +1,31 @@
+---
+name: binance-repo
+kind: pipeline
+type: docker
+
+steps:
+- name: docker
+  image: plugins/docker
+  settings:
+    username:
+        from_secret: docker_username
+    password:
+        from_secret: docker_password
+    repo: davralin/binance
+    tags: latest
+
+  - name: notify
+    image: plugins/matrix
+    when:
+      status:
+        - success
+        - failure
+    settings:
+      homeserver:
+        from_secret: matrix_server
+      roomid:
+        from_secret: matrix_room
+      username:
+        from_secret: matrix_username
+      password:
+        from_secret: matrix_password
