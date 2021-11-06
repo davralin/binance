@@ -4,15 +4,15 @@ kind: pipeline
 type: docker
 
 steps:
-- name: docker
-  image: plugins/docker
-  settings:
-    username:
-        from_secret: docker_username
-    password:
-        from_secret: docker_password
-    repo: davralin/binance
-    tags: latest
+  - name: docker
+    image: plugins/docker
+    settings:
+      username:
+          from_secret: docker_username
+      password:
+          from_secret: docker_password
+      repo: davralin/binance
+      tags: latest
 
   - name: notify
     image: plugins/matrix
