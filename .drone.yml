@@ -24,7 +24,8 @@ steps:
           from_secret: ghcr_username
       password:
           from_secret: ghcr_password
-      repo: gchr.io/davralin/binance
+      repo: ghcr.io/davralin/binance
+      registry: ghcr.io
       tags: latest
       custom_labels:
         - org.opencontainers.image.source=gitea
