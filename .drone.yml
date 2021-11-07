@@ -14,7 +14,7 @@ steps:
       repo: davralin/binance
       tags: latest
       custom_labels:
-        - org.opencontainers.image.source=gitea
+        - org.opencontainers.image.source=https://github.com/davralin/binance
         - org.opencontainers.image.url=https://github.com/davralin/binance
 
   - name: ghcr
@@ -28,7 +28,7 @@ steps:
       registry: ghcr.io
       tags: latest
       custom_labels:
-        - org.opencontainers.image.source=gitea
+        - org.opencontainers.image.source=https://github.com/davralin/binance
         - org.opencontainers.image.url=https://github.com/davralin/binance
 
   - name: notify
