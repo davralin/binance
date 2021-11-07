@@ -4,7 +4,7 @@ kind: pipeline
 type: docker
 
 steps:
-  - name: docker
+  - name: dockerhub
     image: plugins/docker
     settings:
       username:
@@ -12,6 +12,19 @@ steps:
       password:
           from_secret: docker_password
       repo: davralin/binance
+      tags: latest
+      custom_labels:
+        - org.opencontainers.image.source=gitea
+        - org.opencontainers.image.url=https://github.com/davralin/binance
+
+  - name: ghcr
+    image: plugins/docker
+    settings:
+      username:
+          from_secret: ghcr_username
+      password:
+          from_secret: ghcr_password
+      repo: gchr.io/davralin/binance
       tags: latest
       custom_labels:
         - org.opencontainers.image.source=gitea
