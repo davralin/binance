@@ -31,6 +31,12 @@ steps:
         - org.opencontainers.image.source=https://github.com/davralin/binance
         - org.opencontainers.image.url=https://github.com/davralin/binance
 
+  - name: trivy-scan
+    image: quay.io/sighup/trivy-offline:latest
+    pull: always
+    commands:
+      - trivy --exit-code 1 --severity HIGH,CRITICAL --ignore-unfixed --skip-update davralin/binance
+
   - name: notify
     image: plugins/matrix
     when:
