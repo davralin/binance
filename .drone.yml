@@ -35,7 +35,7 @@ steps:
     image: quay.io/sighup/trivy-offline:latest
     pull: always
     commands:
-      - trivy --exit-code 1 --severity HIGH,CRITICAL --ignore-unfixed --skip-update davralin/binance
+      - trivy image --exit-code 1 --severity HIGH,CRITICAL --ignore-unfixed --skip-update davralin/binance
 
   - name: notify
     image: plugins/matrix
